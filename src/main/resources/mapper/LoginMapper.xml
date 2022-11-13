@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.threehyun.cosomi.login.dao.LoginDao">
+<mapper namespace="com.threehyun.cosomi.login.dao.LoginMapper">
 
     <select id="findUserByEmailPwd" resultType="com.threehyun.cosomi.login.controller.dto.TempUser" parameterType="com.threehyun.cosomi.login.controller.dto.LoginProcessDto">
         SELECT *
-        FROM TUSERACCOUT
+        FROM TUSERACCOUNT
         WHERE USER_EMAIL = #{email} AND USER_PWD = #{pwd};
     </select>
 

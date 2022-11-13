@@ -2,7 +2,7 @@ package com.threehyun.cosomi.login.service;
 
 import com.threehyun.cosomi.login.controller.dto.LoginProcessDto;
 import com.threehyun.cosomi.login.controller.dto.TempUser;
-import com.threehyun.cosomi.login.dao.LoginDao;
+import com.threehyun.cosomi.login.dao.LoginMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +14,12 @@ import java.security.NoSuchAlgorithmException;
 @RequiredArgsConstructor
 public class LoginServiceImpl implements LoginService{
 
-    private final LoginDao loginDao;
+    private final LoginMapper loginMapper;
 
     @Override
     public TempUser login(LoginProcessDto loginProcessDto) {
         loginProcessDto.setPwd(encodingPwdToHash(loginProcessDto.getPwd()));
-        TempUser user = loginDao.findUserByEmailPwd(loginProcessDto);
+        TempUser user = loginMapper.findUserByEmailPwd(loginProcessDto);
         return user;
     }
 
