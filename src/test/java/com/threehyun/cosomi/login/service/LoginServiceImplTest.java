@@ -43,9 +43,10 @@ class LoginServiceImplTest {
         loginProcessDto.setPwd("12345");
 
         // when
-        //LoginService loginService = new LoginServiceImpl(loginMapper);
+        TempUser result = loginService.login(loginProcessDto);
 
         //then
+        System.out.println("result = " + result.getUSER_PWD());
 
     }
 
