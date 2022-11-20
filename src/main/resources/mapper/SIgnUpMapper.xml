@@ -4,10 +4,23 @@
 
 <mapper namespace="com.threehyun.cosomi.login.dao.SignUpMapper">
 
-    <select id="userAccountDup" parameterType="String" resultType="int">
+    <select id="userAccountDupCheck" parameterType="String" resultType="int">
         SELECT COUNT(*)
         FROM TUSERACCOUNT
         WHERE USEREMAIL = #{USEREMAIL};
     </select>
+
+    <insert id="userAccountIns" parameterType="String" >
+        INSERT INTO TUSERACCOUNT
+        VALUES(  #{userSeq}
+                ,#{userEmail}
+                ,#{userPwd}
+                ,#{userName}
+                ,#{userPhone}
+                ,#{userRegDateTime}
+                ,#{userSocial}
+                ,#{userState}
+                );
+    </insert>
 
 </mapper>
