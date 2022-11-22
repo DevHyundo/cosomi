@@ -11,13 +11,22 @@ public class SignUpServiceImpl implements SignUpService {
 
     private final SignUpMapper signUpMapper;
 
-    /**이메일 중복 확인*/
+    /**
+     * 사용자 > 회원가입 > 중복확인
+     * @param {signUpUserDto}
+     * @return {int}
+     * */
     @Override
-    public int userAccountDup(String userEmail) {
-        return signUpMapper.userAccountDup(userEmail);
+    public int userAccountDupCheck(String userEmail) {
+        return signUpMapper.userAccountDupCheck(userEmail);
     }
 
-    /**회원가입*/
+
+    /**
+     * 사용자 > 회원가입
+     * @param {signUpUserDto}
+     * @return {int}
+     * */
     @Override
     public int userAccountIns(SignUpUserDto signUpUserDto) {
         return signUpMapper.userAccountIns(signUpUserDto);

@@ -20,9 +20,22 @@ public class SignUpServiceImpleTest {
 
     @Test
     @DisplayName("이메일 중복 확인")
-    void userActDupl(String userEmail){
-        userEmail = "";
-        int result = signUpService.userAccountDup(userEmail);
+    void userActDupl(){
+        //given
+        String userEmail = "test@gmail.com";
+
+        //when
+        int result = signUpService.userAccountDupCheck(userEmail);
+
+        //then
         Assertions.assertThat(result).isEqualTo(1);
     }
+
+
+    @Test
+    @DisplayName("회원가입")
+    void signUpProcess(){
+
+    }
+
 }
