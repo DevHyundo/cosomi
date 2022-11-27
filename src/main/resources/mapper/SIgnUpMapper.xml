@@ -11,16 +11,14 @@
     </select>
 
     <insert id="userAccountIns" parameterType="com.threehyun.cosomi.signUp.controller.dto.SignUpUserDto" >
-        INSERT INTO TUSERACCOUNT
-        VALUES(  USER_SEQ.NEXTVAL
-                ,#{userEmail}
-                ,#{userPwd}
-                ,#{userName}
-                ,#{userPhone}
-                ,#{userRegDateTime}
-                ,#{userSocial}
-                ,#{userState}
-                );
+        INSERT INTO TUSERACCOUNT( USER_EMAIL    ,USER_PWD
+                                 ,USER_NAME     ,USER_PHONE
+                                 ,USER_REGDATE  ,USER_SOCIAL
+                                 ,USER_STATE    ,USER_SEQ)
+        VALUES(  #{userEmail}   ,#{userPwd}
+                ,#{userName}    ,#{userPhone}
+                ,SYSDATE()      ,#{userSocial}
+                ,#{userState}   ,(SELECT MAX(USER_SEQ)+1 FROM TUSERACCOUNT T1));
     </insert>
 
 </mapper>
